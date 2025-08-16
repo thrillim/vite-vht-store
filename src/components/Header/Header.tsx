@@ -8,7 +8,7 @@ export default function Header() {
   return (
     <header className='flex items-center justify-between p-4'>
       <Link
-        className='flex items-center gap-2 cursor-pointer p-0 text-md'
+        className='flex items-center gap-2 cursor-pointer p-0 text-md hover:bg-white'
         to='/'
       >
         <LucidePackage2 />

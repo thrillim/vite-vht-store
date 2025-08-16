@@ -1,7 +1,6 @@
 import React from 'react';
 import type { Product } from '../../types/Product';
 import ProductCard from './ProductCard';
-import { twMerge } from 'tailwind-merge';
 
 type ProductListProps = {
   title?: string;
