@@ -1,47 +1,62 @@
-// import { useState } from 'react'
-// import reactLogo from './assets/react.svg'
-// import viteLogo from '/vite.svg'
-import './App.css'
-import Header from './components/Header/Header'
-import Banner from './components/Banner/Banner'
-// import ProductCard from './components/Product/ProductCard'
-import PromotedProductCard from './components/Product/PromotedProductCard'
-import { products } from './mocks/products'
+import './App.css';
+import Header from './components/Header/Header';
+import Banner from './components/Banner/Banner';
+import PromotedProductCard from './components/Product/PromotedProductCard';
+import { products } from './mocks/products';
+import { Routes, Route, Link } from 'react-router-dom';
+import ProductPage from './pages/ProductPage';
 
 function App() {
-  // const [count, setCount] = useState(0)
-
   return (
     <>
       <Header />
-      <div className='max-w-5xl px-4 sm:mx-auto'> 
-        <Banner />
-        <PromotedProductCard product={products[0]} />
+      <div className='max-w-5xl px-4 sm:mx-auto'>
+        <Routes>
+          <Route
+            path='/'
+            element={
+              <div>
+                <Banner />
+                <PromotedProductCard product={products[0]} />
+                <div style={{ marginTop: 32 }}>
+                  <h2>All Products</h2>
+                  <ul
+                    style={{
+                      display: 'flex',
+                      gap: 24,
+                      flexWrap: 'wrap',
+                      padding: 0,
+                      listStyle: 'none',
+                    }}
+                  >
+                    {products.map((product) => (
+                      <li key={product.id}>
+                        <Link
+                          to={`/product/${product.slug}`}
+                          style={{ textDecoration: 'none', color: 'inherit' }}
+                        >
+                          <img
+                            src={product.imageSrc}
+                            alt={product.imageAlt}
+                            style={{ width: 120, borderRadius: 8 }}
+                          />
+                          <div>{product.title}</div>
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            }
+          />
+          <Route
+            path='/product/:slug'
+            element={<ProductPage />}
+          />
+        </Routes>
       </div>
-      
-      
-      {/* <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p> */}
     </>
-  )
+  );
 }
 
-export default App
+export default App;
