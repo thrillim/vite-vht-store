@@ -25,7 +25,7 @@ const Button: React.FC<ButtonProps> = ({
     justifyContent: 'center',
     gap: 8,
     border: 'none',
-    borderRadius: 4,
+    borderRadius: 6,
     cursor: 'pointer',
     ...style,
   };

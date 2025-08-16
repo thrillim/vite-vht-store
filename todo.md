@@ -1,7 +1,7 @@
 [ ] Homepage
-    [ ] Header
-    [ ] Sale Banner
-    [ ] Promote product
+    [v] Header
+    [v] Sale Banner
+    [v] Promote product
     [ ] Popular Products
 
 [ ] View product page

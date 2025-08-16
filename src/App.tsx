@@ -3,6 +3,10 @@
 // import viteLogo from '/vite.svg'
 import './App.css'
 import Header from './components/Header/Header'
+import Banner from './components/Banner/Banner'
+// import ProductCard from './components/Product/ProductCard'
+import PromotedProductCard from './components/Product/PromotedProductCard'
+import { products } from './mocks/products'
 
 function App() {
   // const [count, setCount] = useState(0)
@@ -10,8 +14,10 @@ function App() {
   return (
     <>
       <Header />
-      
-      
+      <div className='max-w-5xl px-4 sm:mx-auto'> 
+        <Banner />
+        <PromotedProductCard product={products[0]} />
+      </div>
       
       
       {/* <div>

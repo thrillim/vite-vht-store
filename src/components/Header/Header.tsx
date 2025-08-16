@@ -16,8 +16,8 @@ export default function Header() {
           <li>
             <Button
               icon={vercelLogo}
-              iconWidth={16}
-              iconHeight={16}
+              iconWidth={12}
+              iconHeight={12}
               className='bg-black text-white'
             >
               Deploy
