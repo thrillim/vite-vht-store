@@ -20,7 +20,7 @@ const MyLink: React.FC<MyLinkProps> = ({
     <Link
       {...rest}
       className={twMerge(
-        'flex border-0 rounded-md cursor-pointer gap-2 justify-center items-center h-10 px-4 py-2 font-medium text-sm',
+        'w-fit flex border-0 rounded-md cursor-pointer gap-2 justify-center items-center h-10 px-4 py-2 font-medium text-sm hover:bg-gray-900/90',
         className
       )}
     >

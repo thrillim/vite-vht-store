@@ -1,8 +1,8 @@
-[ ] Homepage
+[v] Homepage
     [v] Header
     [v] Sale Banner
     [v] Promote product
-    [ ] Popular Products
+    [v] Popular Products
 
 [ ] View product page
     [ ] Product details
@@ -12,10 +12,10 @@
     [ ] Related Products (similar to Popular products)
 
 [ ] Components
-    [ ] Header
-    [ ] Banner
-    [ ] ProductCard
-    [ ] ProductList
+    [v] Header
+    [v] Banner
+    [v] ProductCard
+    [v] ProductList
     [ ] ProductDetails
     [ ] Cart
 

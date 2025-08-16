@@ -8,7 +8,7 @@ export default function Header() {
   return (
     <header className='flex items-center justify-between p-4'>
       <Link
-        className='flex items-center gap-2 cursor-pointer'
+        className='flex items-center gap-2 cursor-pointer p-0 text-md'
         to='/'
       >
         <LucidePackage2 />
@@ -32,7 +32,7 @@ export default function Header() {
               icon={gitHubLogo}
               iconWidth={20}
               iconHeight={20}
-              className='bg-gray-100/80 text-black'
+              className='bg-gray-100/80 text-black hover:bg-gray-100/70'
               to={'/github'}
             >
               GitHub
@@ -42,7 +42,7 @@ export default function Header() {
             <Link
               icon={vercelTextLogo}
               iconHeight={24}
-              className='!p-0'
+              className='!p-0 hover:bg-white'
               to={'/vercel'}
             ></Link>
           </li>
