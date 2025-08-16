@@ -8,7 +8,7 @@ export default function PromotedProductCard({ product }: { product: Product }) {
       <img
         src={product.imageSrc}
         alt={product.imageAlt}
-        className='w-[500px] h-[500px] object-cover bg-slate-300 rounded-md mb-4'
+        className='w-max-[500px] h-max-[500px] object-cover aspect-square bg-slate-300 rounded-md mb-4'
       />
       <div className='w-full flex flex-col justify-center px-6 md:text-left text-center'>
         <h2 className='tracking-tighter text-3xl sm:text-4xl md:text-5xl font-semibold'>
