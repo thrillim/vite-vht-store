@@ -2,14 +2,15 @@ import type { Product } from '../../types/Product';
 import Link from '../ui/Link';
 
 export default function PromotedProductCard({ product }: { product: Product }) {
-
   return (
-    <div className='flex flex-col md:flex-row md:mt-8 lg:mt-12 items-center justify-between'>
-      <img
-        src={product.imageSrc}
-        alt={product.imageAlt}
-        className='w-[500px] h-[500px] object-cover bg-slate-300 rounded-md mb-4'
-      />
+    <div className='flex flex-col gap-4 md:flex-row md:mt-8 lg:mt-12 items-center justify-between'>
+      <div className='aspect-square'>
+        <img
+          src={product.imageSrc}
+          alt={product.imageAlt}
+          className='object-contain bg-slate-300 rounded-md'
+        />
+      </div>
       <div className='w-full flex flex-col justify-center px-6 md:text-left text-center'>
         <h2 className='tracking-tighter text-3xl sm:text-4xl md:text-5xl font-semibold'>
           {product.title}

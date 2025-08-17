@@ -1,5 +1,5 @@
 import type { Product } from '../../types/Product';
-// import Link from '../ui/Link';
+import Link from '../ui/Link';
 import { ShoppingCartIcon } from 'lucide-react';
 import RadioButtons from '../ui/RadioButtons';
 import { useState } from 'react';
@@ -95,14 +95,15 @@ export default function PromotedProductCard({ product }: { product: Product }) {
               </Button>
             </div>
 
-            <Button
+            <Link
               className='bg-white border border-gray-300 w-full text-gray-900 !px-8 mx-auto md:m-0 hover:bg-gray-100'
               icon={<ShoppingCartIcon />}
               iconWidth={20}
               iconHeight={20}
+              to={'/cart'}
             >
               View cart
-            </Button>
+            </Link>
           </div>
         </div>
       </div>

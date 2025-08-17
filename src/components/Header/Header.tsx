@@ -14,7 +14,7 @@ export default function Header() {
         <LucidePackage2 />
         <span className='font-semibold'>Acme Store</span>
       </Link>
-      <nav className=''>
+      <nav className='hidden sm:block'>
         <ul className='flex items-center gap-4'>
           <li>
             <Link
