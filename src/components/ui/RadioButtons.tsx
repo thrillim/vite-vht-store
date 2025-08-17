@@ -8,7 +8,7 @@ export default function RadioButtons ({ title, options, selectedOption, onChange
   className?: string;
 }) {
   return (
-    <fieldset className={twMerge('block, my-6', className)}>
+    <fieldset className={twMerge('block, text-left', className)}>
       <legend className='text-base font-medium text-gray-900'>{title}</legend>
       <div className='mt-2 space-y-2 flex flex-wrap gap-2'>
         {options.map((option) => (
