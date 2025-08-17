@@ -37,7 +37,9 @@ const MyLink: React.FC<MyLinkProps> = ({
               }}
             />
           ) : (
-            icon
+            <div className='flex items-center justify-center' style={{ width: iconWidth, height: iconHeight }}>
+              {icon}
+            </div>
           )}
         </span>
       )}
