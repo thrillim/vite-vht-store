@@ -6,6 +6,8 @@ import { products } from './mocks/products';
 import ProductList from './components/Product/ProductList';
 import { Routes, Route } from 'react-router-dom';
 import ProductPage from './pages/ProductPage';
+import CartPage from './pages/CartPage';
+import OrderSuccess from './pages/OrderSuccess';
 
 function App() {
   const popularProducts = products.slice(1, 4);
@@ -30,6 +32,14 @@ function App() {
         <Route
           path='/product/:slug'
           element={<ProductPage />}
+        />
+        <Route
+          path='/cart'
+          element={<CartPage />}
+        />
+        <Route
+          path='/success'
+          element={<OrderSuccess />}
         />
       </Routes>
     </>
