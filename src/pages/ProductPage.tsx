@@ -13,7 +13,7 @@ export default function ProductPage() {
   }
 
   return (
-    <div className='max-w-5xl mx-auto px-4 py-6 md:px-6'>
+    <div className='max-w-5xl mx-auto px-4 pt-6 md:px-6'>
       <ProductDetail product={product} />
       <ProductList title='Related Products' products={products.filter(p => p.id !== product.id)} />
     </div>
