@@ -1,4 +1,5 @@
 import type { Product } from '../../types/Product';
+import { useCart } from '../../context/CartContext';
 
 interface ProductCardInCartProps {
   product: Product;
@@ -8,6 +9,7 @@ interface ProductCardInCartProps {
 export const ProductCardInCart: React.FC<ProductCardInCartProps> = ({
   product,
 }) => {
+  const { removeFromCart } = useCart();
   return (
     <div className='flex justify-between items-center p-4 gap-4'>
       <div className='w-full inline-flex gap-4'>
@@ -26,7 +28,8 @@ export const ProductCardInCart: React.FC<ProductCardInCartProps> = ({
       </div>
       <button
         className='self-start text-sm font-medium text-red-600 hover:underline'
-      > 
+        onClick={() => removeFromCart(product.id)}
+      >
         Remove
       </button>
     </div>
