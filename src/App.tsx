@@ -29,7 +29,6 @@ function App() {
               <ProductList
                 title='Popular Products'
                 products={popularProducts}
-                className='py-36'
               />
             </div>
           }
