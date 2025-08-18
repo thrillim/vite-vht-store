@@ -8,11 +8,12 @@ import { Routes, Route } from 'react-router-dom';
 import ProductPage from './pages/ProductPage';
 import CartPage from './pages/CartPage';
 import OrderSuccess from './pages/OrderSuccess';
+import { CartProvider } from './context/CartContext';
 
 function App() {
   const popularProducts = products.slice(1, 4);
   return (
-    <>
+    <CartProvider>
       <Header />
       <Routes>
         <Route
@@ -42,7 +43,7 @@ function App() {
           element={<OrderSuccess />}
         />
       </Routes>
-    </>
+    </CartProvider>
   );
 }
 

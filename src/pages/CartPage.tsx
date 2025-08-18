@@ -1,11 +1,16 @@
 import CartCard from '../components/Cart/CartCard';
 import Button from '../components/ui/Button';
 import { useNavigate } from 'react-router-dom';
+import { ProductCardInCart } from '../components/Cart/ProductCardInCart';
+import { useCart } from '../context/CartContext';
+
 
 import { useState, useEffect } from 'react';
 
 function CartPage() {
   const navigate = useNavigate();
+  const { cart } = useCart();
+
   const [orderPlaced, setOrderPlaced] = useState(() => {
     return localStorage.getItem('orderPlaced') === 'true';
   });
@@ -24,13 +29,17 @@ function CartPage() {
           <CartCard title='Billing' />
           <CartCard title='Payment' />
           <CartCard title='Cart Summary'>
-            <div>Item 1</div>
-            <div>Item 2</div>
+            <div>
+              {cart.map((item, index) => (
+                <ProductCardInCart key={index} product={item} />
+              ))}
+            </div>
+            <div className='text-xl font-semibold'>Total:</div>
           </CartCard>
         </div>
         <CartCard title='Order Summary'>
           <div>Item 1</div>
-          <div>Item 2</div>
+          <div className='text-xl font-semibold'>Total:</div>
           {!orderPlaced && (
             <Button
               className='w-full bg-black text-white hover:bg-black/80'

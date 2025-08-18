@@ -4,24 +4,26 @@
     [v] Promote product
     [v] Popular Products
 
-[ ] View product page
+[v] View product page
     [v] Product details
-    [ ] Add to Cart
-    [ ] Buy Now!
-    [-] View Cart
+    [v] Add to Cart
+    [v] Buy Now!
+    [v] View Cart
     [v] Related Products (similar to Popular products)
 
 [ ] Cart page
     [ ] Place order 
-    -> [ ] Order success page
+    -> [v] Order success page
     -> [ ] Remove Place order button
 
-[ ] Components
+[v] Components
     [v] Header
     [v] Banner
     [v] ProductCard
     [v] ProductList
     [v] ProductDetails
     [v] Link
-    [ ] Button
+    [v] Button
+    [v] ProductInCartCard
 
+[ ] Manage cart by context and provider

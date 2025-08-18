@@ -5,16 +5,16 @@ import RadioButtons from '../ui/RadioButtons';
 import { useState } from 'react';
 import Button from '../ui/Button';
 import { Toaster, toast } from 'sonner';
+import { useCart } from '../../context/CartContext';
 
 export default function PromotedProductCard({ product }: { product: Product }) {
   const [selectedColor, setSelectedColor] = useState('black');
   const [selectedSize, setSelectedSize] = useState('m');
+  const { addToCart, cart } = useCart();
+
   return (
     <>
-      <Toaster
-        richColors
-        expand
-      />
+      <Toaster richColors expand />
       <div className='grid md:grid-cols-2 gap-6 lg:gap-12 items-start py-4 md:py-8 lg:py-12 mb-8'>
         <div className='grid md:grid-cols-5 gap-3'>
           <img
@@ -22,28 +22,6 @@ export default function PromotedProductCard({ product }: { product: Product }) {
             alt={product.imageAlt}
             className='col-span-4 object-contain aspect-square bg-slate-300 rounded-md mb-4'
           />
-          {/* <div className='col-span-1'>
-          <img
-            src={product.imageSrc}
-            alt={product.imageAlt}
-            className='object-contain aspect-square bg-slate-300 rounded-md'
-          />
-          <img
-            src={product.imageSrc}
-            alt={product.imageAlt}
-            className='object-contain aspect-square bg-slate-300 rounded-md'
-          />
-          <img
-            src={product.imageSrc}
-            alt={product.imageAlt}
-            className='object-contain aspect-square bg-slate-300 rounded-md'
-          />
-          <img
-            src={product.imageSrc}
-            alt={product.imageAlt}
-            className='object-contain aspect-square bg-slate-300 rounded-md'
-          />
-        </div> */}
         </div>
 
         <div className='w-full flex flex-col justify-center md:text-left text-center'>
@@ -51,7 +29,6 @@ export default function PromotedProductCard({ product }: { product: Product }) {
             {product.title}
           </h2>
           <p className='text-base md:mt-4 my-2'>{product.details}</p>
-          {/* quantity left */}
           <p className='text-base'>Only {product.quantity} left in stock!</p>
           <p className='text-4xl font-bold text-gray-900 my-4 text-right'>
             ${product.price}
@@ -80,33 +57,38 @@ export default function PromotedProductCard({ product }: { product: Product }) {
           />
 
           <div>
-            <div className='flex gap-2 py-2'>
-              <Button
-                className='w-full bg-black text-white'
-                onClick={() => toast.info('Product added to cart!')}
-              >
-                Add to Cart
-              </Button>
-              <Button
-                className='w-full'
-                onClick={() => toast.success('Product purchased!')}
-              >
-                Buy now!
-              </Button>
-            </div>
-
-            <Link
-              className='bg-white border border-gray-300 w-full text-gray-900 !px-8 mx-auto md:m-0 hover:bg-gray-100'
-              icon={<ShoppingCartIcon />}
-              iconWidth={20}
-              iconHeight={20}
-              to={'/cart'}
+            <Button
+              className='w-full bg-black text-white'
+              onClick={() => {
+                addToCart({
+                  ...product,
+                });
+                console.log('Product added to cart:', product);
+                console.log('Product cart now: ', cart);
+                toast.info('Product added to cart!');
+              }}
             >
-              View cart
-            </Link>
+              Add to Cart
+            </Button>
+            <Button
+              className='w-full'
+              onClick={() => toast.success('Product purchased!')}
+            >
+              Buy now!
+            </Button>
           </div>
+
+          <Link
+            className='bg-white border border-gray-300 w-full text-gray-900 !px-8 mx-auto md:m-0 hover:bg-gray-100'
+            icon={<ShoppingCartIcon />}
+            iconWidth={20}
+            iconHeight={20}
+            to={'/cart'}
+          >
+            View cart
+          </Link>
         </div>
-      </div>
+        </div>
     </>
   );
 }
