@@ -22,7 +22,8 @@ export default function Header() {
               iconWidth={12}
               iconHeight={12}
               className='bg-black text-white'
-              to={'/deploy'}
+              to={'https://vite-vht-store.vercel.app/'}
+              target='_blank'
             >
               Deploy
             </Link>
@@ -33,7 +34,8 @@ export default function Header() {
               iconWidth={20}
               iconHeight={20}
               className='bg-gray-100/80 text-black hover:bg-gray-100/70'
-              to={'/github'}
+              to={'https://github.com/thrillim/vite-vht-store'}
+              target='_blank'
             >
               GitHub
             </Link>
@@ -43,8 +45,10 @@ export default function Header() {
               icon={vercelTextLogo}
               iconHeight={24}
               className='!p-0 hover:bg-white'
-              to={'/vercel'}
-            ></Link>
+              to={'https://vercel.com/'}
+              target='_blank'
+            >
+            </Link>
           </li>
         </ul>
       </nav>

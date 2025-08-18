@@ -11,10 +11,10 @@
     [v] View Cart
     [v] Related Products (similar to Popular products)
 
-[ ] Cart page
-    [ ] Place order 
+[v] Cart page
+    [v] Place order 
     -> [v] Order success page
-    -> [ ] Remove Place order button
+    -> [v] Remove Place order button
 
 [v] Components
     [v] Header
@@ -26,4 +26,4 @@
     [v] Button
     [v] ProductInCartCard
 
-[ ] Manage cart by context and provider
+[v] Manage cart by context and provider
