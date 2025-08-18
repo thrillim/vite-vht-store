@@ -56,7 +56,7 @@ export default function PromotedProductCard({ product }: { product: Product }) {
             className='mb-6'
           />
 
-          <div>
+          <div className='flex gap-1 mb-2'>
             <Button
               className='w-full bg-black text-white'
               onClick={() => {
