@@ -3,7 +3,7 @@ import Link from '../ui/Link';
 
 export default function PromotedProductCard({ product }: { product: Product }) {
   return (
-    <div className='flex flex-col gap-4 md:flex-row md:mt-8 lg:myt-12 md:mb-36 items-center justify-between'>
+    <div className='flex flex-col gap-4 md:flex-row md:mt-8 md:mb-28 mb-16 items-center justify-between'>
       <div className='aspect-square'>
         <img
           src={product.imageSrc}
