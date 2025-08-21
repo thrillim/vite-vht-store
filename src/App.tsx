@@ -8,15 +8,13 @@ import { Routes, Route } from 'react-router-dom';
 import ProductPage from './pages/ProductPage';
 import CartPage from './pages/CartPage';
 import OrderSuccess from './pages/OrderSuccess';
-import { CartProvider } from './context/CartContext';
-
 import ScrollToTop from './components/ui/ScrollToTop';
 
 
 function App() {
   const popularProducts = products.slice(1, 4);
   return (
-    <CartProvider>
+    <>
       <Header />
       <ScrollToTop />
       <Routes>
@@ -46,7 +44,7 @@ function App() {
           element={<OrderSuccess />}
         />
       </Routes>
-    </CartProvider>
+    </>
   );
 }
 

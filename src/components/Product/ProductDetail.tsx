@@ -5,16 +5,20 @@ import RadioButtons from '../ui/RadioButtons';
 import { useState } from 'react';
 import Button from '../ui/Button';
 import { Toaster, toast } from 'sonner';
-import { useCart } from '../../context/CartContext';
+import { useCartStore } from '../../store/useCartStore';
 
 export default function PromotedProductCard({ product }: { product: Product }) {
   const [selectedColor, setSelectedColor] = useState('black');
   const [selectedSize, setSelectedSize] = useState('m');
-  const { addToCart, cart } = useCart();
+  const addToCart = useCartStore((state) => state.addToCart);
+  const cart = useCartStore((state) => state.cart);
 
   return (
     <>
-      <Toaster richColors expand />
+      <Toaster
+        richColors
+        expand
+      />
       <div className='grid md:grid-cols-2 gap-6 lg:gap-12 items-start py-4 md:py-8 lg:py-12 mb-8'>
         <div className='grid md:grid-cols-5 gap-3'>
           <img
@@ -88,7 +92,7 @@ export default function PromotedProductCard({ product }: { product: Product }) {
             View cart
           </Link>
         </div>
-        </div>
+      </div>
     </>
   );
 }

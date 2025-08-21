@@ -2,8 +2,7 @@ import CartCard from '../components/Cart/CartCard';
 import Button from '../components/ui/Button';
 import { useNavigate } from 'react-router-dom';
 import { ProductCardInCart } from '../components/Cart/ProductCardInCart';
-import { useCart } from '../context/CartContext';
-
+import { useCartStore } from '../store/useCartStore';
 
 function formatUSD(amount: number) {
   return amount.toLocaleString('en-US', {
@@ -16,7 +15,8 @@ function formatUSD(amount: number) {
 
 function CartPage() {
   const navigate = useNavigate();
-  const { cart, removeCart } = useCart();
+  const cart = useCartStore((state) => state.cart);
+  const removeCart = useCartStore((state) => state.removeCart);
   const subtotal = cart.reduce((total, item) => total + item.price, 0);
   const shipping = 4.99;
   const tax = 0.1 * subtotal;

@@ -8,4 +8,13 @@ export type Product = {
   quantity: number;
   imageSrc: string;
   imageAlt: string;
+  variants: ProductVariant[];
+};
+
+
+export type ProductVariant = {
+  id: string;
+  color: string[];
+  size: string[];
+  quantity: number;
 };
