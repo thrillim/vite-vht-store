@@ -15,6 +15,26 @@ export const products: Product[] = [
     imageAlt: "Acme hoodie",
     summary: "The ultimate comfort meets style hoodie",
     details: `Crafted for the modern trendsetter, this hoodie blends ultra-soft, breathable fabric with a sleek, minimalist design, perfect for both a relaxed day at home or a stylish outing. Featuring adjustable drawstrings and a spacious kangaroo pocket, it offers both comfort and convenience. The durable material ensures it can withstand the rigors of daily wear while maintaining its form and color after multiple washes.`,
+    variants: [
+      {
+        id: "1-1",
+        color: "Black",
+        size: "M",
+        quantity: 50
+      },
+      {
+        id: "1-2",
+        color: "Gray",
+        size: "M",
+        quantity: 50
+      },
+      {
+        id: "1-3",
+        color: "Gray",
+        size: "L",
+        quantity: 50
+      }
+    ]
   },
   {
     id: "2",
@@ -26,6 +46,20 @@ export const products: Product[] = [
     imageAlt: "Acme ceramic mug",
     summary: "Sip in style: your everyday coffee companion",
     details: `The Acme Ceramic Mug is crafted from high-quality ceramic materials, ensuring durability and resistance to daily wear and tear. Its ergonomic design features a comfortably large handle that provides a secure grip, making it ideal for sipping your favorite hot beverages.`,
+    variants: [
+      {
+        id: "2-1",
+        color: "White",
+        size: "L",
+        quantity: 25
+      },
+      {
+        id: "2-2",
+        color: "Black",
+        size: "M",
+        quantity: 25
+      }
+    ]
   },
   {
     id: "3",
@@ -37,6 +71,20 @@ export const products: Product[] = [
     imageAlt: "Acme baseball hat",
     summary: "The ultimate everyday cap",
     details: `The Acme Baseball Hat is designed for both fashion and functionality, making it the perfect accessory for your daily adventures. Crafted from premium fabric, this hat offers a durable and breathable fit, suitable for any weather condition. Its adjustable strap ensures a comfortable, custom fit for all head sizes, while the pre-curved visor provides excellent sun protection.`,
+    variants: [
+      {
+        id: "3-1",
+        color: "Red",
+        size: "XL",
+        quantity: 30
+      },
+      {
+        id: "3-2",
+        color: "Blue",
+        size: "M",
+        quantity: 30
+      }
+    ]
   },
   {
     id: "4",
@@ -49,5 +97,13 @@ export const products: Product[] = [
     summary: "The acme black cup for every occasion",
     details:
       "The Acme Black Cup is a testament to minimalist design, perfectly suited for your modern lifestyle. Crafted from high-quality ceramic, this cup features a matte black finish that adds a touch of sophistication to your coffee table or desk.",
+    variants: [
+      {
+        id: "4-1",
+        color: "Black",
+        size: "M",
+        quantity: 100
+      }
+    ]
   },
 ];
