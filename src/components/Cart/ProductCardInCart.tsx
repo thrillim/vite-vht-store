@@ -1,9 +1,9 @@
-import type { Product } from '../../types/Product';
 import { useCartStore } from '../../store/useCartStore';
+import type { CartItem } from '../../types/Cart';
+
 
 interface ProductCardInCartProps {
-  product: Product;
-  key: number;
+  product: CartItem;
 }
 
 export const ProductCardInCart: React.FC<ProductCardInCartProps> = ({
@@ -22,7 +22,10 @@ export const ProductCardInCart: React.FC<ProductCardInCartProps> = ({
         </div>
         <div className='text-left gap-1 flex flex-col justify-center'>
           <h2 className='font-medium'>Name {product.title}</h2>
-          <p className='text-gray-500'>Quantity: 1</p>
+          <p className='text-gray-500'>
+            {product.color}, {product.size}, Quantity:{' '}
+            {product.quantity}
+          </p>
           <p className=''>${product.price}</p>
         </div>
       </div>

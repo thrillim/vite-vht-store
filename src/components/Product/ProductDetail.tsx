@@ -8,10 +8,22 @@ import { Toaster, toast } from 'sonner';
 import { useCartStore } from '../../store/useCartStore';
 
 export default function PromotedProductCard({ product }: { product: Product }) {
-  const [selectedColor, setSelectedColor] = useState('black');
-  const [selectedSize, setSelectedSize] = useState('m');
+  const colorOptions = Array.from(
+    new Set(product.variants?.map((v) => v.color))
+  ).filter(Boolean);
+  const sizeOptions = Array.from(
+    new Set(product.variants?.map((v) => v.size))
+  ).filter(Boolean);
+
+  const [selectedColor, setSelectedColor] = useState(colorOptions[0] || '');
+  const [selectedSize, setSelectedSize] = useState(sizeOptions[0] || '');
   const addToCart = useCartStore((state) => state.addToCart);
-  const cart = useCartStore((state) => state.cart);
+
+  // Find the selected variant's quantity
+  const selectedVariant = product.variants?.find(
+    (v) => v.color === selectedColor && v.size === selectedSize
+  );
+  const selectedQuantity = selectedVariant?.quantity ?? 0;
 
   return (
     <>
@@ -33,50 +45,58 @@ export default function PromotedProductCard({ product }: { product: Product }) {
             {product.title}
           </h2>
           <p className='text-base md:mt-4 my-2'>{product.details}</p>
-          <p className='text-base'>Only {product.quantity} left in stock!</p>
+          <p className='text-base'>Only {selectedQuantity} left in stock!</p>
           <p className='text-4xl font-bold text-gray-900 my-4 text-right'>
             ${product.price}
           </p>
 
-          <RadioButtons
+          {/* Extract unique color options from product.variants */}
+            <RadioButtons
             title='Color'
-            options={[{ label: 'Black', value: 'black' }]}
+            options={colorOptions.map((color) => ({ label: color, value: color }))}
             selectedOption={selectedColor}
             onChange={setSelectedColor}
             className='mb-12'
-          />
+            />
 
-          <RadioButtons
+          {/* Extract unique size options from product.variants */}
+            <RadioButtons
             title='Size'
-            options={[
-              { label: 'XS', value: 'xs' },
-              { label: 'S', value: 's' },
-              { label: 'M', value: 'm' },
-              { label: 'L', value: 'l' },
-              { label: 'XL', value: 'xl' },
-            ]}
+            options={sizeOptions.map((size) => ({ label: size, value: size }))}
             selectedOption={selectedSize}
             onChange={setSelectedSize}
             className='mb-6'
-          />
+            />
 
           <div className='flex gap-1 mb-2'>
             <Button
-              className='w-full bg-black text-white'
+              className={`w-full text-white ${selectedQuantity === 0 ? 'bg-gray-400 cursor-not-allowed' : 'bg-black'}`}
               onClick={() => {
-                addToCart({
-                  ...product,
-                });
-                console.log('Product added to cart:', product);
-                console.log('Product cart now: ', cart);
+                if (!selectedVariant) return;
+                addToCart(
+                  {
+                    id: selectedVariant.id,
+                    productId: product.id,
+                    title: product.title,
+                    price: product.price,
+                    imageSrc: product.imageSrc,
+                    imageAlt: product.imageAlt,
+                    color: selectedVariant.color,
+                    size: selectedVariant.size,
+                    quantity: 1,
+                  },
+                  1
+                );
                 toast.info('Product added to cart!');
               }}
+              disabled={selectedQuantity === 0}
             >
               Add to Cart
             </Button>
             <Button
               className='w-full'
               onClick={() => toast.success('Product purchased!')}
+              disabled={selectedQuantity === 0}
             >
               Buy now!
             </Button>
